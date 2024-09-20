@@ -1,0 +1,46 @@
+import re
+from datetime import datetime,timedelta
+try:
+    while True:
+        print(f'Доступные пицы:')
+        print (f'1.Маргарита')
+        print(f'2.Пепперони')
+        print (f'3.Грибная')
+        print (f'4.Четыре сыра')
+        print (f'5.Капричоза')
+        order_input = int(input(f'Какую пицу вы хотите заказать? (Введите номер)'))
+        pizza_order = int(input(f'Сколько пиц вы хотите заказать? (Введите количество)'))
+        if order_input == 1:
+            name_pizza = f"Маргарита"
+        elif order_input == 2:
+            name_pizza = f"Пипперони"
+        elif order_input == 3:
+            name_pizza = f"Грибная"
+        elif order_input == 4:
+            name_pizza = f"Четрые сыра"
+        elif order_input == 5:
+             name_pizza = f"Капричоза"
+        else:
+            print(f"Такой пицы нету")
+        print(f'Вы заказали {pizza_order} пицы {name_pizza}')
+            feedback = input(f'Хотите ли вы оставить отзыв?(да/нет)')
+            if feedback == 'да':
+                review_input = input(f'Пожалуйста, напишите ваш отзыв')
+                print(f'Благодарим вас за оставленый отзыв!')
+            else:
+                print(f'Спасибо, что воспользовались нашим сервисом!')
+            regex = re.compile('вкусно')
+            str = input()
+            if (regex.search(str)):
+                print('За ваш отзыв вы получаете любую пицу в подарок')
+            order_date = datetime.now()
+            arrival = order_date + timedelta(hours=1)
+            print(f'Заказ от {order_date.strftime("%d.%m.%Y%H:%M:%S")}принят. Наш курьер подъедет к вам в течение часа до (20.09.2024 00:18)')
+            break
+except ValueError as e:
+    print('Произошла ошибка,неверно введены данные заказа')
+finally:
+    print('Благодарим за заказ в нашем сервисе, заказывайте у нас снова!')
+
+
+
