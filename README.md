@@ -1,55 +1,25 @@
-import random,math
+from datetime import datetime
 try:
-    magisters_input = print(f'Введите имена участников соревнования')
-    first_player = input(f'Введите имя 1-го участника')
-    print(f'{first_player} - это первый участник соревнований')
-    second_player = input(f'Введите имя 2-го участника')
-    print(f'{second_player} - это второй участник соревнований')
-    print(f'Игра началась!')
-    print(f'Испытание для {first_player}:')
-    points1_1 = random.randint (3,10)
-    points1_2 = random.randint(30,50)
-    points1_3 = random.randint(3,10)
-    way_1 = input(f'Ваш игрок проходил полосу препятствий?')
-    honesty_1 = input(f'Играл ли этот игрок честно?')
-    total_points1 = points1_1 + points1_2 + points1_3
-    print(f'Испытание 1 - Дуэль: за дуэль он получил {points1_1} очков')
-    print(f'Испытание 2 - Загадка: за эту загадку он получил {points1_2} очков')
-    print(f'Испытание 3 - Испытание на ловкость: за свою ловкость он получил {points1_3} очков')
-    print(f'Итого очков для {first_player} будет: {total_points1}')
-    print(f'Испытание для {second_player}:')
-    points2_1 = random.randint(3, 10)
-    points2_2 = random.randint(30, 50)
-    points2_3 = random.randint(3, 10)
-    way_2 = input(f'Ваш игрок проходил полосу препятствий?')
-    honesty_2 = input(f'Играл ли этот игрок честно?')
-    total_points2 = points2_1 + points2_2 + points2_3
-    print(f'Испытание 1 - Дуэль: за дуэль он получил {points2_1} очков')
-    print(f'Испытание 2 - Загадка: за эту загадку он получил {points2_2} очков')
-    print(f'Испытание 3 - Испытание на ловкость: за свою ловкость он получил{points2_3} очков')
-    print(f'Итого очков для {second_player} будет: {total_points2}')
-    if total_points1 > total_points2:
-        print(f'Победил {first_player} с разницей {total_points1} очками')
-    elif total_points2 > total_points1:
-        print(f'Победил {second_player} с разницей {total_points2} очками')
-    else:
-        print(f'Ничья, оба игроков набрали {total_points1} очков')
-        if honesty_1 == 'да':
-            total_points1 += 40
-        else:
-            print(f'Доп.баллов начисленно не будет')
-            if honesty_2 == 'да':
-                total_points2 += 40
+    number_cart = input('Введите номер вашей карты: ').strip()
+    if number_cart.isdigit() and len(number_cart) == 16:
+        print("Номер карты принят")
+        date_activate = input('Введите срок действия карты (в формате MM/YYYY): '
+        separator = date_activate.split('/')
+        if len(separator) == 2:
+            month, year = separator
+            if month.isdigit() and year.isdigit() and len(month) == 2 and len(year) == 4:
+                print(f"Месяц: {month}, Год: {year}")
             else:
-                print(f'Доп.баллов начисленно не будет')
-                if way_1 == 'да':
-                    total_points1 += 40
-                else:
-                    print(f'Доп.баллы за полосу препятствий начисленны не будут')
-                    if way_2 == 'да':
-                        total_points2 += 40
-                    else:
-                        print(f'Доп.баллы за полосу препятствий начисленны не будут')
-except ValueError:
-    print(f'Некоректный ввод данных')
+                print("Неверный формат срока действия карты.")
+        else:
+            print("Неверный формат срока действия карты.")
+    else:
+        print("Неверно введен номер карты.")
+        cvv_number = input('Введите Cvv код вашей карты (3 цифры)').strip)()
+        if cvv_number.isdigit() and len(cvv_number) == 3:
+            print('Ваш Сvv код принят')
+except Exception as e:
+    print(f"Произошла ошибка: {e}")
+    finally
+    print('Благодарим за предоставленные данные')
 
